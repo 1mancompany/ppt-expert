@@ -1,62 +1,53 @@
 # PPT Expert
 
-PPT Expert is a presentation-design talent for turning rough topics, notes,
-reports, and deck requests into content-grounded, visually reviewed presentation
-plans and final-ready slide workflows.
+PPT Expert is a one-shot presentation production talent for turning rough topics,
+notes, reports, data, source files, and existing decks into finished PowerPoint
+files using a bundled bash generator.
 
 ## Overview
 
-This talent is equipped with the `ppt-image-first` workflow. It does not jump
-straight into a template or write a page list from thin context. It first
-clarifies the deck goal, builds or extracts a content basis, proposes multiple
-visual directions with generated previews, locks the chosen style, writes the
-planning artifacts, and only then moves into page generation and review.
+This talent is equipped with the `pptx-one-shot` workflow. It is designed to
+produce the first complete deck without turning the user into a project manager.
+It infers reasonable defaults, builds a coherent narrative, writes a slide TSV,
+runs the bundled bash script, and checks the generated PPTX package before
+delivery.
 
-The default delivery style is image-first: full-slide visuals are treated as the
-primary design output, then packaged for presentation use. This is best for
-high-fidelity decks where visual finish, cohesion, and client review matter more
-than every element being a native editable PowerPoint object.
+The default delivery style is bash-only PPTX production. It uses native text
+boxes and simple visual structure generated directly as an OpenXML `.pptx`
+package, with presenter notes emitted as a sibling markdown file.
 
 ## Core Capabilities
 
-- **Conversation-first intake** — turns vague requests into confirmed deck goals,
-  audience assumptions, page ranges, and narrative direction without a long form.
-- **Content grounding** — creates or extracts `content_report.md` before style
-  work when the user has only a topic, thin notes, or scattered materials.
-- **Image-first style proposals** — generates preview sets for cover, table of
-  contents, and body pages before asking the user to commit to a visual style.
-- **Planning lock** — writes `design_spec.md`, `slide_blueprint.md`, and
-  `spec_lock.md` in the workflow's required order.
-- **Review and retouch loop** — uses bundled preview, candidate-picker, and review
-  HTML shells so the user can compare directions and approve the deck before
-  export.
+- **One-shot deck creation** — turns a topic or rough material into a finished
+  `.pptx` with a complete slide sequence.
+- **Bash generation** — writes a `slides.tsv` file and runs the bundled
+  `generate_pptx.sh` script to create the deck.
+- **Content strategy** — builds a narrative spine, section rhythm, slide titles,
+  evidence pages, summaries, and presenter notes.
+- **Visual structure** — creates varied slide rhythms with title pages, section
+  pages, cards, process pages, comparison pages, and summaries.
+- **QA before delivery** — checks for placeholders, package integrity, weak
+  structure, and unsupported claims.
 
 ## Use Cases
 
-- **Thesis or defense PPT** — clarify the academic story, create a credible
-  narrative spine, and preview formal visual directions before building slides.
+- **Thesis or defense PPT** — create a credible academic story, evidence flow,
+  diagrams, result pages, and speaker notes.
 - **Product or investor deck** — turn rough positioning and feature notes into a
-  polished deck plan with multiple design directions.
+  concise pitch deck with a clear story.
 - **Business report or internal review** — convert reports, meeting notes, or
-  project summaries into structured, presentation-ready pages.
+  project summaries into structured, presentation-ready pages with charts and
+  decisions.
 - **Course, training, or workshop deck** — organize teaching flow, section rhythm,
-  and visual treatment before final generation.
-
-## Demo
-
-The bundled `ppt-image-first` skill includes sample outputs and a demo PPT:
-
-- `skills/ppt-image-first/docs/images/workflow-overview-slide.png`
-- `skills/ppt-image-first/docs/images/sample-meteorology-defense-deck.png`
-- `skills/ppt-image-first/docs/images/sample-red-campus-deck.png`
-- `skills/ppt-image-first/docs/images/sample-tech-research-body-page.png`
-- `skills/ppt-image-first/docs/demo/ppt-image-first-demo-deck.pptx`
+  examples, exercises, and presenter notes.
+- **Deck rewrite** — turn an existing deck's content into a fresh bash-generated
+  PPTX when preserving the original template is not required.
 
 ## Success Stories
 
-Use this talent when the deck needs a thoughtful design process rather than a
-one-shot slide dump: the user gets confirmation gates, real preview images, and
-grounded planning files before full deck generation begins.
+Use this talent when the user wants a finished deck, not a planning conversation:
+it should make sensible assumptions, produce the PPTX through bash, and report
+what was done and what was verified.
 
 ---
 

@@ -1,12 +1,13 @@
 # PPT Expert
 
-A Talent Market package for a presentation design expert equipped with the
-`ppt-image-first` workflow.
+A Talent Market package for a presentation design expert equipped with a
+bash-only `pptx-one-shot` workflow.
 
-PPT Expert helps users turn rough topics, reports, notes, and deck requests into
-content-grounded, image-first presentation plans. It works through confirmation
-gates, visual preview directions, planning locks, page review surfaces, and final
-deck export readiness instead of jumping straight into a generic template.
+PPT Expert helps users turn rough topics, reports, notes, source files, data, and
+existing decks into finished PowerPoint presentations. It is configured for
+autonomous first-pass delivery: infer reasonable assumptions, write a slide TSV,
+run the bundled bash generator, and verify the `.pptx` package before returning
+the result.
 
 ## Talent Package
 
@@ -16,36 +17,28 @@ my-talent/
 ├── DESCRIPTION.md
 ├── avatar.jpg
 ├── skills/
-│   └── ppt-image-first/
-│       ├── SKILL.md
-│       ├── references/
-│       ├── templates/
-│       ├── assets/
-│       └── docs/
+│   ├── pptx-one-shot/
+│   │   ├── SKILL.md
+│   │   ├── references/
+│   │   └── scripts/
 └── tools/
-    ├── .mcp.json
-    ├── manifest.yaml
-    └── filesystem/
-        └── TOOL.md
+    └── manifest.yaml
 ```
 
 ## What It Does
 
-- Clarifies PPT goals, audience, materials, length, and identity anchors.
-- Builds or extracts `content_report.md` before style work when needed.
-- Generates visual preview directions for cover, table of contents, and body
-  pages before style confirmation.
-- Writes `design_spec.md`, `slide_blueprint.md`, and `spec_lock.md` in the
-  required order before generation.
-- Uses bundled preview, candidate-picker, and review shells for visual selection
-  and retouch loops.
+- Infers PPT goals, audience, materials, length, and identity anchors from the
+  brief, asking only when a missing detail blocks production.
+- Produces finished `.pptx` files rather than stopping at plans or outlines.
+- Writes a `slides.tsv` file and uses `generate_pptx.sh` to create the deck.
+- Builds decks with native text boxes, simple visual structure, and notes output.
+- Runs package-level QA before delivery.
 
-## Source Workflow
+## Source-Informed Workflow
 
-The bundled skill comes from
-[`NyxTides/ppt-image-first`](https://github.com/NyxTides/ppt-image-first) and is
-copied into `my-talent/skills/ppt-image-first/` with its relative references,
-templates, assets, sample images, and demo deck preserved.
+The active skill is a one-shot PPT expert workflow that intentionally avoids OMC
+tools and old image-first assets. It uses only bash plus the bundled OpenXML PPTX
+generator script.
 
 ## Publishing
 
